@@ -1,0 +1,53 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+         <h3>Enter Values For Chart Formation</h3>
+        </div>
+        <div class="card-body">
+          <form #myForm="ngForm" (ngSubmit)="createChart()">
+            <div class="col-md-6 my-1">
+              <div class="form-group">
+                <label for="input1">Box-1</label>
+                <input type="number" class="form-control" id="input1" ngModel name="box1" min="0" max="100" required #value1="ngModel"  (blur)="onBlur()">
+                <span class="text-danger" *ngIf="!value1?.valid && value1?.touched">
+                  <ng-container *ngIf="value1?.errors?.['required']">*Value is required</ng-container>
+                  <ng-container *ngIf="value1?.errors?.['max']">*Number can not greater than 100</ng-container>
+                  <ng-container *ngIf="value1?.errors?.['min']">*Number should be greater than 0</ng-container>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 my-1">
+              <div class="form-group">
+                <label for="input2">Box-2</label>
+                <input type="number" class="form-control" id="input2" ngModel name="box2" min="0" max="100" required  #value2="ngModel"  (blur)="onBlur()">
+                <span class="text-danger" *ngIf="!value1?.valid && value1?.touched">
+                  <ng-container *ngIf="value2?.errors?.['required']">*Value is required</ng-container>
+                  <ng-container *ngIf="value2?.errors?.['max']">*Number can not greater than 100</ng-container>
+                  <ng-container *ngIf="value2?.errors?.['min']">*Number should be greater than 0</ng-container>
+                </span>
+              </div>
+            </div>
+            <div class="col-auto my-1">
+              <button type="submit" class="btn btn-primary" [disabled]="(value1.value + value2.value)!==100">Create Chart</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          <h2>My Chart</h2>
+        </div>
+        <div class="card-body">
+          <div class="chart-container">
+            <canvas id="MyChart" >{{ chart }}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
