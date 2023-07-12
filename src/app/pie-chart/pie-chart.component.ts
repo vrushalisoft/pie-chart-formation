@@ -17,19 +17,22 @@ export class PieChartComponent implements  OnInit {
 
   }
 
-  onBlur(){
-    console.log(this.myFormObj)
+  onInput1Blur(){
+
     if(this.myFormObj.form.controls['box1'].value <=100  && this.myFormObj.form.controls['box1'].value>= 0){
       this.myFormObj.form.patchValue({
         box2 : (100-this.myFormObj.form.controls['box1'].value)
       })
+      console.log(this.myFormObj.form.controls['box2'].value)
       this.myFormObj.form.controls['box2'].touched = true
     }
-
+  }
+    onInput2Blur(){
     if(this.myFormObj.form.controls['box2'].value <= 100  && this.myFormObj.form.controls['box2'].value >= 0){
       this.myFormObj.form.patchValue({
         box1 : (100-this.myFormObj.form.controls['box2'].value)
       })
+      console.log(this.myFormObj.form.controls['box1'].value)
       this.myFormObj.form.controls['box1'].touched = true
     }
   }

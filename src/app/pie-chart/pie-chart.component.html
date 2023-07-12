@@ -11,7 +11,7 @@
             <div class="col-md-6 my-1">
               <div class="form-group">
                 <label for="input1">Box-1</label>
-                <input type="number" class="form-control" id="input1" ngModel name="box1" min="0" max="100" required #value1="ngModel"  (blur)="onBlur()">
+                <input type="number" class="form-control" id="input1" ngModel name="box1" min="0" max="100" required #value1="ngModel"  (blur)="onInput1Blur()">
                 <span class="text-danger" *ngIf="!value1?.valid && value1?.touched">
                   <ng-container *ngIf="value1?.errors?.['required']">*Value is required</ng-container>
                   <ng-container *ngIf="value1?.errors?.['max']">*Number can not greater than 100</ng-container>
@@ -22,8 +22,8 @@
             <div class="col-md-6 my-1">
               <div class="form-group">
                 <label for="input2">Box-2</label>
-                <input type="number" class="form-control" id="input2" ngModel name="box2" min="0" max="100" required  #value2="ngModel"  (blur)="onBlur()">
-                <span class="text-danger" *ngIf="!value1?.valid && value1?.touched">
+                <input type="number" class="form-control" id="input2" ngModel name="box2" min="0" max="100" required  #value2="ngModel"  (blur)="onInput2Blur()">
+                <span class="text-danger" *ngIf="!value2?.valid && value2?.touched">
                   <ng-container *ngIf="value2?.errors?.['required']">*Value is required</ng-container>
                   <ng-container *ngIf="value2?.errors?.['max']">*Number can not greater than 100</ng-container>
                   <ng-container *ngIf="value2?.errors?.['min']">*Number should be greater than 0</ng-container>
